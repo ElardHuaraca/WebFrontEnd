@@ -24,7 +24,7 @@
   </ul>
 </nav>
 
-<div class="content" role="main">
+<div class="content" role="main" *ngIf="content">
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -42,11 +42,31 @@
         <td>{{product.ProductInventory}}</td>
         <td>{{product.ProductExpiration}}</td>
         <td>{{product.ProductRegistered}}</td>
-        <td><button class="btn btn-warning">Editar</button></td>
+        <td><button class="btn btn-warning" (click)="editProduct(product.ProductID!,product)">Editar</button></td>
         <td><button class="btn btn-danger" (click)="putProductDesactivate(product.ProductID!)">Eliminar</button></td>
       </tr>
     </tbody>
   </table>
+</div>
+
+<div class="col">
+  <div class="row">
+    <div class="form-group">
+      <div class="form-group col-md-2 mb-3">
+        <label for="ProductID">ID</label>
+        <input type="text" class="form-control" id="ProductID" placeholder="First name" value="Mark" required>
+      </div>
+      <div class="form-group col-md-5 mb-3">
+        <label for="ProductName">Name</label>
+        <input type="text" class="form-control" id="ProductName" placeholder="Last name" value="Otto" required>
+      </div>
+      <div class="form-group col-md-5 mb-3">
+        <label for="validationDefaultUsername">Username</label>
+        <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username"
+          aria-describedby="inputGroupPrepend2" required>
+      </div>
+    </div>
+  </div>
 </div>
 
 <router-outlet></router-outlet>

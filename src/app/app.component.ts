@@ -11,6 +11,7 @@ export class AppComponent {
   title = 'WebFrontEnd';
 
   products: Array<Product> = [];
+  content: boolean = true;
 
   constructor(private productsService: ProductsService) { }
 
@@ -29,6 +30,16 @@ export class AppComponent {
       return;
     this.productsService.putProductDesactivate(ProductID!).subscribe(res => {
       if (res == null) {
+        this.getProductsActivate();
+      }
+    });
+  }
+
+  editProduct(id: number, product: Product) {
+    this.content = false;
+    this.productsService.putProduct(id, product).subscribe(res => {
+      if (res == null) {
+        this.content = true;
         this.getProductsActivate();
       }
     });
