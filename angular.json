@@ -75,7 +75,8 @@
               "browserTarget": "WebFrontEnd:build:production"
             },
             "development": {
-              "browserTarget": "WebFrontEnd:build:development"
+              "browserTarget": "WebFrontEnd:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

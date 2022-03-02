@@ -7,7 +7,7 @@ import { Product } from '../models/product.model';
 })
 export class ProductsService {
 
-  url = 'http:///localhost:44342/api/Product';
+  url = 'https://localhost:44342/api/Product';
 
   constructor(private http: HttpClient) { }
 
@@ -28,7 +28,7 @@ export class ProductsService {
   }
 
   putProductDesactivate(id: number) {
-    return this.http.put(this.url + '/PutProductDesactivate/' + id, null);
+    return this.http.put(this.url + '/PutProductDesactivate/' + id, { observe: 'response' });
   }
 
   putProductActivate(id: number) {
