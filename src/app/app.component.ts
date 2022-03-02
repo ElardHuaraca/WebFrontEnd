@@ -11,6 +11,7 @@ export class AppComponent {
   title = 'WebFrontEnd';
 
   products: Array<Product> = [];
+  product?: Product;
   content: boolean = true;
 
   constructor(private productsService: ProductsService) { }
@@ -35,13 +36,14 @@ export class AppComponent {
     });
   }
 
-  editProduct(id: number, product: Product) {
+  showFormEditAndCreate() {
     this.content = false;
-    this.productsService.putProduct(id, product).subscribe(res => {
-      if (res == null) {
-        this.content = true;
-        this.getProductsActivate();
-      }
+  }
+
+  updateProduct(product: Product) {
+    this.productsService.putProduct(product.ProductID, product).subscribe(res => {
+      this.getProductsActivate();
+      this.content = true;
     });
   }
 }

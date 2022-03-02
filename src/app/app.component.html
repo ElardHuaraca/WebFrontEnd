@@ -42,28 +42,28 @@
         <td>{{product.ProductInventory}}</td>
         <td>{{product.ProductExpiration}}</td>
         <td>{{product.ProductRegistered}}</td>
-        <td><button class="btn btn-warning" (click)="editProduct(product.ProductID!,product)">Editar</button></td>
+        <td><button class="btn btn-warning" (click)="showFormEditAndCreate()">Editar</button></td>
         <td><button class="btn btn-danger" (click)="putProductDesactivate(product.ProductID!)">Eliminar</button></td>
       </tr>
     </tbody>
   </table>
 </div>
 
-<div class="col">
+<div class="col" *ngIf="!content">
   <div class="row">
     <div class="form-group">
       <div class="form-group col-md-2 mb-3">
         <label for="ProductID">ID</label>
-        <input type="text" class="form-control" id="ProductID" placeholder="First name" value="Mark" required>
+        <input type="text" class="form-control" id="ProductID" [(ngModel)]="product!.ProductID" required>
       </div>
       <div class="form-group col-md-5 mb-3">
         <label for="ProductName">Name</label>
-        <input type="text" class="form-control" id="ProductName" placeholder="Last name" value="Otto" required>
+        <input type="text" class="form-control" id="ProductName" [(ngModel)]="product!.ProductName" required>
       </div>
       <div class="form-group col-md-5 mb-3">
-        <label for="validationDefaultUsername">Username</label>
-        <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username"
-          aria-describedby="inputGroupPrepend2" required>
+        <label for="ProductInventory">Inventory</label>
+        <input type="number" class="form-control" id="ProductInventory" a[(ngModel)]="product!.ProductInventory"
+          required>
       </div>
     </div>
   </div>
