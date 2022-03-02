@@ -41,7 +41,7 @@ export class AppComponent {
   }
 
   updateProduct(product: Product) {
-    this.productsService.putProduct(product.ProductID, product).subscribe(res => {
+    this.productsService.putProduct(product.ProductID!, product).subscribe(res => {
       this.getProductsActivate();
       this.content = true;
     });
